@@ -1,0 +1,11 @@
+package br.com.bemnascer.chatbot.model;
+
+public enum Intent {
+    DOCUMENTOS_PACIENTE,
+    DOCUMENTOS_ACOMPANHANTE,
+    HORARIO_VISITA,
+    REGRAS_VISITA,
+    HORARIO_ADMINISTRATIVO,
+    ATENDIMENTO_24H,
+    DESCONHECIDO
+}

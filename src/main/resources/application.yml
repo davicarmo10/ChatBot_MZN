@@ -1,0 +1,41 @@
+server:
+  port: ${SERVER_PORT:8081}
+
+spring:
+  application:
+    name: chatbot-bem-nascer
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+bem-nascer:
+  nome: "Maternidade Bem Nascer"
+  documentos:
+    paciente:
+      - "RG"
+      - "CPF"
+      - "Cartão do SUS"
+    acompanhante:
+      - "RG"
+      - "CPF"
+  visitas:
+    inicio: "15h"
+    fim: "17h"
+    regras:
+      - "Não é permitido entrar com capacete."
+      - "Não é permitido levar comida."
+      - "Na troca de acompanhante, deve ser levada roupa para a paciente."
+  funcionamento:
+    administrativo-inicio: "8h"
+    administrativo-fim: "18h"
+    # Informação ainda não fornecida pela maternidade. Não inventar resposta.
+    atendimento-24h: ""
+
+evolution:
+  base-url: ${EVOLUTION_BASE_URL:http://localhost:8080}
+  api-key: ${EVOLUTION_API_KEY:}
+  instance: ${EVOLUTION_INSTANCE:MZN-LOCAL}
+  send-enabled: ${EVOLUTION_SEND_ENABLED:false}
