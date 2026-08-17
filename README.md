@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Chatbot — Maternidade Bem Nascer
 
 Primeiro MVP do chatbot administrativo da Maternidade Bem Nascer.
@@ -304,3 +305,7 @@ Mantenha `EVOLUTION_SEND_ENABLED=false` durante o primeiro teste. Depois de conf
 ```bash
 sudo docker compose up -d --force-recreate chatbot-bem-nascer
 ```
+=======
+# ChatBot_MZN
+ChatBot da Maternidade Bem Nascer
+>>>>>>> 547fbc2d2b6e0f21ae707a0f1f2e6cf74c264db0
