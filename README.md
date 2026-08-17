@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Chatbot — Maternidade Bem Nascer
 
 Primeiro MVP do chatbot administrativo da Maternidade Bem Nascer.
@@ -309,3 +310,6 @@ sudo docker compose up -d --force-recreate chatbot-bem-nascer
 # ChatBot_MZN
 ChatBot da Maternidade Bem Nascer
 >>>>>>> 547fbc2d2b6e0f21ae707a0f1f2e6cf74c264db0
+=======
+
+>>>>>>> 33dd2a6f60484f78b4f65a5b226edc154e06a31f
