@@ -46,4 +46,6 @@ curl "http://localhost:${EVOLUTION_PORT}/instance/connect/MZN-LOCAL" \
   -H "apikey: ${EVOLUTION_API_KEY}"
 ```
 
-Mantenha `EVOLUTION_SEND_ENABLED=false` no `.env` da raiz enquanto testa. Depois de confirmar que as mensagens chegam aos logs do chatbot, altere para `true` e recrie o serviço `chatbot-bem-nascer`.
+Mantenha `EVOLUTION_SEND_ENABLED=false` no `.env` da raiz enquanto testa. Siga o [guia do chatbot](../README.md)
+para iniciar o Ollama, testar a IA local e preencher `BOT_ALLOWED_NUMBERS` antes de ativar o envio.
+Os logs do chatbot mostram as intenções, sem imprimir as conversas completas.

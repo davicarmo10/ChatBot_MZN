@@ -1,6 +1,7 @@
 package br.com.bemnascer.chatbot.model;
 
 public enum Intent {
+    SAUDACAO,
     DOCUMENTOS_PACIENTE,
     DOCUMENTOS_ACOMPANHANTE,
     HORARIO_VISITA,

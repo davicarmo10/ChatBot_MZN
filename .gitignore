@@ -5,3 +5,6 @@ target/
 .env
 evolution-api/.env
 .DS_Store
+data/
+*.mv.db
+*.trace.db

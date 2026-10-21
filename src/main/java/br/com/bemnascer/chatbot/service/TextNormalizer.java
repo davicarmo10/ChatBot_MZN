@@ -1,11 +1,8 @@
 package br.com.bemnascer.chatbot.service;
 
-import org.springframework.stereotype.Component;
-
 import java.text.Normalizer;
 import java.util.Locale;
 
-@Component
 public class TextNormalizer {
 
     public String normalize(String text) {

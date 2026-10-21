@@ -27,8 +27,10 @@ public class BotService {
         return new BotResponse(intent, responseFor(intent));
     }
 
-    private String responseFor(Intent intent) {
+    public String responseFor(Intent intent) {
         return switch (intent) {
+            case SAUDACAO -> "Olá! Sou o assistente virtual da " + properties.nome() + ". "
+                    + "Posso ajudar com horários de visita e documentos para paciente e acompanhante.";
             case DOCUMENTOS_PACIENTE -> "Para atendimento na " + properties.nome() +
                     ", a paciente deve apresentar " + formatList(properties.documentos().paciente()) + ".";
             case DOCUMENTOS_ACOMPANHANTE -> "O acompanhante deve apresentar " +

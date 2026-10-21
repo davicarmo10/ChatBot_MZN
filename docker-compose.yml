@@ -13,8 +13,43 @@ services:
       EVOLUTION_INSTANCE: ${EVOLUTION_INSTANCE:-MZN-LOCAL}
       EVOLUTION_API_KEY: ${EVOLUTION_API_KEY}
       EVOLUTION_SEND_ENABLED: ${EVOLUTION_SEND_ENABLED:-false}
+      BOT_ALLOWED_NUMBERS: ${BOT_ALLOWED_NUMBERS:-}
+      AI_ENABLED: ${AI_ENABLED:-true}
+      OLLAMA_BASE_URL: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3:4b}
+      AI_TIMEOUT: ${AI_TIMEOUT:-60s}
+      BOT_DATABASE_URL: jdbc:h2:file:/app/data/chatbot;DB_CLOSE_ON_EXIT=FALSE
+    volumes:
+      - chatbot_data:/app/data
+    depends_on:
+      ollama:
+        condition: service_healthy
     networks:
       - evolution-network
+
+  ollama:
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:11434:11434"
+    environment:
+      OLLAMA_NO_CLOUD: "1"
+      OLLAMA_NUM_PARALLEL: "1"
+      OLLAMA_MAX_LOADED_MODELS: "1"
+      OLLAMA_CONTEXT_LENGTH: "8192"
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks:
+      - evolution-network
+
+volumes:
+  chatbot_data:
+  ollama_data:
 
 networks:
   evolution-network:

@@ -4,6 +4,30 @@ server:
 spring:
   application:
     name: chatbot-bem-nascer
+  datasource:
+    url: ${BOT_DATABASE_URL:jdbc:h2:file:./data/chatbot;DB_CLOSE_ON_EXIT=FALSE}
+    username: sa
+    password: ""
+  sql:
+    init:
+      mode: always
+
+bot:
+  allowed-numbers: ${BOT_ALLOWED_NUMBERS:}
+  retention: 7d
+  greeting-idle: 24h
+  max-contact-messages: 200
+  max-total-messages: 2000
+  context-messages: 12
+  context-characters: 8000
+  max-text-characters: 2000
+  max-pending-events: 2000
+
+ai:
+  enabled: ${AI_ENABLED:true}
+  base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+  model: ${OLLAMA_MODEL:qwen3:4b}
+  timeout: ${AI_TIMEOUT:60s}
 
 management:
   endpoints:

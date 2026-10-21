@@ -1,11 +1,8 @@
 package br.com.bemnascer.chatbot.service;
 
 import br.com.bemnascer.chatbot.model.Intent;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
-@Service
 public class IntentService {
 
     private final TextNormalizer textNormalizer;
@@ -96,6 +93,8 @@ public class IntentService {
     }
 
     private boolean containsAny(String text, List<String> terms) {
-        return terms.stream().anyMatch(text::contains);
+        String words = " " + text + " ";
+        return terms.stream().anyMatch(term -> term.length() <= 3
+                ? words.contains(" " + term + " ") : text.contains(term));
     }
 }

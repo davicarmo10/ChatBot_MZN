@@ -2,7 +2,7 @@ package br.com.bemnascer.chatbot.controller;
 
 import br.com.bemnascer.chatbot.model.BotRequest;
 import br.com.bemnascer.chatbot.model.BotResponse;
-import br.com.bemnascer.chatbot.service.BotService;
+import br.com.bemnascer.chatbot.service.ContextualBotService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,9 +16,9 @@ import java.util.Map;
 @RequestMapping("/api/bot")
 public class BotController {
 
-    private final BotService botService;
+    private final ContextualBotService botService;
 
-    public BotController(BotService botService) {
+    public BotController(ContextualBotService botService) {
         this.botService = botService;
     }
 
@@ -29,6 +29,6 @@ public class BotController {
 
     @PostMapping("/test")
     public BotResponse test(@Valid @RequestBody BotRequest request) {
-        return botService.answer(request.message());
+        return botService.preview(request.message(), request.conversationId());
     }
 }

@@ -50,4 +50,15 @@ class IntentServiceTest {
         assertThat(service.identify("A maternidade funciona 24 horas?"))
                 .isEqualTo(Intent.ATENDIMENTO_24H);
     }
+
+    @Test
+    void shouldNotMatchRgInsideOtherWords() {
+        assertThat(service.identify("é urgente")).isEqualTo(Intent.DESCONHECIDO);
+    }
+
+    @Test
+    void shouldContinueRecognizingPluralVisitHours() {
+        assertThat(service.identify("Qual o horário de visitas?"))
+                .isEqualTo(Intent.HORARIO_VISITA);
+    }
 }
