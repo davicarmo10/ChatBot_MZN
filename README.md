@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 # Chatbot — Maternidade Bem Nascer
 
 Primeiro MVP do chatbot administrativo da Maternidade Bem Nascer.
