@@ -3,4 +3,5 @@ target/
 .vscode/
 *.iml
 .env
+evolution-api/.env
 .DS_Store
